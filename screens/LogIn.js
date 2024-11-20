@@ -22,8 +22,9 @@ export default function LogIn({ navigation }) {
     //Funkcija za navigaciju na registraciju
     const handleRegisterNavigation = () => {
         console.log("Navigacija na registraciju.");
-        //Navigacija na ekran za registraciju nekad u budućnosti...
+        navigation.navigate('Register');
     };
+    
 
     return(
         <LinearGradient
