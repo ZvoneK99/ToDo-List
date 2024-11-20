@@ -1,27 +1,23 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LogIn from './screens/LogIn'; // Povezujemo LogIn.js
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>ToDo List</Text>
-    </View>
-  );
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="LogIn">
+                {/* Ekran za prijavu */}
+                <Stack.Screen
+                    name="LogIn"
+                    component={LogIn}
+                    options={{ title: 'ToDo List' }}
+                />
+                {/* Kasnije ćemo dodati ToDo ekran i registraciju ovdje */}
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 }
-//Stilovi za naslov
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        paddingTop: 50,
-    },
-    title: {
-      fontSize: 30,
-      fontWeight: 'bold',
-      color: "#dec509",
-      textShadowColor: "black", //Obrub
-      textShadowOffset: {width: -1, height: 1}, //Offset za sjenu
-      textShadowRadius: 2, //Raspršenje sjene
-    },
-});
+
